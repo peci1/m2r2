@@ -46,14 +46,14 @@
 <a class="reference external image-reference" href="https://crossnox.github.io/m2r"><img alt="Documentation" src="https://img.shields.io/badge/docs-latest-brightgreen.svg" /></a>
 <a class="reference external image-reference" href="https://github.com/CrossNox/m2r/workflows/Python%20package/badge.svg"><img alt="Python package" src="https://github.com/CrossNox/m2r/workflows/Python%20package/badge.svg" /></a>
 <hr class="docutils" />
-<p>M2R converts a markdown file including reStructuredText (rst) markups to a valid
+<p>M2R2 converts a markdown file including reStructuredText (rst) markups to a valid
 rst format.</p>
 <div class="section" id="m2r-the-original">
 <h2>M2R: the original<a class="headerlink" href="#m2r-the-original" title="Permalink to this headline">¶</a></h2>
 <p>M2R2 is a fork of <a class="reference external" href="https://github.com/miyakogi/m2r">m2r</a> which hasn’t been updated for a long time
 and there’s been no response from the author about a PR fixing a serious issue that broke several
-pipelines using <code class="docutils literal notranslate"><span class="pre">sphinx3</span></code>. I’ve changed some of the tooling for what I’m mostly using now. Below goes
-the original readme.</p>
+pipelines using <code class="docutils literal notranslate"><span class="pre">sphinx3</span></code>. Every <code class="docutils literal notranslate"><span class="pre">m2r</span></code> config should work out of the box. I’ve changed some of the tooling for what I’m mostly using now. Below goes
+the original readme, changing only what’s needed to work with <code class="docutils literal notranslate"><span class="pre">m2r2</span></code>.</p>
 </div>
 <div class="section" id="why-another-converter">
 <h2>Why another converter?<a class="headerlink" href="#why-another-converter" title="Permalink to this headline">¶</a></h2>
@@ -101,11 +101,11 @@ a code block in HTML like <code class="docutils literal notranslate"><span class
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Python 2.7 or Python 3.4+ is required.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">m2r</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">m2r2</span>
 </pre></div>
 </div>
 <p>Or,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">m2r</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">m2r2</span>
 </pre></div>
 </div>
 </div>
@@ -113,17 +113,17 @@ a code block in HTML like <code class="docutils literal notranslate"><span class
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="command-line">
 <h3>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">m2r</span></code> command converts markdown file to rst format.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m2r</span> <span class="n">your_document</span><span class="o">.</span><span class="n">md</span> <span class="p">[</span><span class="n">your_document2</span><span class="o">.</span><span class="n">md</span> <span class="o">...</span><span class="p">]</span>
+<p><code class="docutils literal notranslate"><span class="pre">m2r2</span></code> command converts markdown file to rst format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m2r2</span> <span class="n">your_document</span><span class="o">.</span><span class="n">md</span> <span class="p">[</span><span class="n">your_document2</span><span class="o">.</span><span class="n">md</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Then you will find <code class="docutils literal notranslate"><span class="pre">your_document.rst</span></code> in the same directory.</p>
 </div>
 <div class="section" id="programmatic-use">
 <h3>Programmatic Use<a class="headerlink" href="#programmatic-use" title="Permalink to this headline">¶</a></h3>
-<p>Import <code class="docutils literal notranslate"><span class="pre">m2r.convert</span></code> function and call it with markdown text.
+<p>Import <code class="docutils literal notranslate"><span class="pre">m2r2.convert</span></code> function and call it with markdown text.
 Then it will return converted text.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">m2r</span> <span class="kn">import</span> <span class="n">convert</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">m2r2</span> <span class="kn">import</span> <span class="n">convert</span>
 <span class="n">rst</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="s1">&#39;# Title</span><span class="se">\n\n</span><span class="s1">Sentence.&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rst</span><span class="p">)</span>
 <span class="c1"># Title</span>
@@ -134,7 +134,7 @@ Then it will return converted text.</p>
 </div>
 <p>Or, use <code class="docutils literal notranslate"><span class="pre">parse_from_file</span></code> function to load markdown file and obtain converted
 text.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">m2r</span> <span class="kn">import</span> <span class="n">parse_from_file</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">m2r2</span> <span class="kn">import</span> <span class="n">parse_from_file</span>
 <span class="n">output</span> <span class="o">=</span> <span class="n">parse_from_file</span><span class="p">(</span><span class="s1">&#39;markdown_file.md&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -142,10 +142,10 @@ text.</p>
 PyPI as rst format.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">readme_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;README.md&#39;</span><span class="p">)</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">m2r</span> <span class="kn">import</span> <span class="n">parse_from_file</span>
+    <span class="kn">from</span> <span class="nn">m2r2</span> <span class="kn">import</span> <span class="n">parse_from_file</span>
     <span class="n">readme</span> <span class="o">=</span> <span class="n">parse_from_file</span><span class="p">(</span><span class="n">readme_file</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="c1"># m2r may not be installed in user environment</span>
+    <span class="c1"># m2r2 may not be installed in user environment</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">readme_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">readme</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">setup</span><span class="p">(</span>
@@ -161,7 +161,7 @@ PyPI as rst format.</p>
 <p>In your conf.py, add the following lines.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
     <span class="o">...</span><span class="p">,</span>
-    <span class="s1">&#39;m2r&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;m2r2&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="c1"># source_suffix = &#39;.rst&#39;</span>
@@ -169,7 +169,7 @@ PyPI as rst format.</p>
 </pre></div>
 </div>
 <p>Write index.md and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>.</p>
-<p>When <code class="docutils literal notranslate"><span class="pre">m2r</span></code> extension is enabled on sphinx and <code class="docutils literal notranslate"><span class="pre">.md</span></code> file is loaded, m2r
+<p>When <code class="docutils literal notranslate"><span class="pre">m2r2</span></code> extension is enabled on sphinx and <code class="docutils literal notranslate"><span class="pre">.md</span></code> file is loaded, m2r2
 converts to rst and pass to sphinx, not making new <code class="docutils literal notranslate"><span class="pre">.rst</span></code> file.</p>
 <div class="section" id="mdinclude-directive">
 <h4>mdinclude directive<a class="headerlink" href="#mdinclude-directive" title="Permalink to this headline">¶</a></h4>
@@ -197,18 +197,19 @@ in the markdown file, please use <code class="docutils literal notranslate"><spa
 </li>
 </ul>
 <p>If you find any bug or unexpected behaviour, please report it to
-<a class="reference external" href="https://github.com/miyakogi/m2r/issues">Issues</a>.</p>
+<a class="reference external" href="https://github.com/crossnox/m2r/issues">Issues</a>.</p>
 </div>
 <div class="section" id="example">
 <h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>See <a class="reference external" href="https://miyakogi.github.io/m2r/example.html">example document</a> and <a class="reference external" href="https://github.com/miyakogi/m2r/blob/master/docs/example.md">its
+<p>See <a class="reference external" href="https://crossnox.github.io/m2r/example.html">example document</a> and <a class="reference external" href="https://github.com/crossnox/m2r/blob/master/docs/example.md">its
 source code</a>.</p>
-<p>I’m using m2r for writing user guide of <a class="reference external" href="https://github.com/miyakogi/wdom">WDOM</a>.
+<p>_Note from the original author:_ I’m using m2r for writing user guide of <a class="reference external" href="https://github.com/miyakogi/wdom">WDOM</a>.
 So you can see it as another example. Its <a class="reference external" href="http://wdom-py.readthedocs.io/en/latest/guide/index.html">HTML is
 here</a>, and <a class="reference external" href="https://github.com/miyakogi/wdom/tree/dev/docs/guide">its
 source code is here</a>.</p>
 <div class="section" id="demo-editor">
 <h3>Demo editor<a class="headerlink" href="#demo-editor" title="Permalink to this headline">¶</a></h3>
+<p>_Note:_ This hasn’t received any updates.</p>
 <p>Demo editor of m2r is available.
 If you are interested in m2r, please try it.</p>
 <p><a class="reference external" href="https://github.com/miyakogi/m2rdemo">https://github.com/miyakogi/m2rdemo</a></p>
@@ -231,7 +232,7 @@ Without the mistune, I couldn’t write this. Thank you!</p>
 </div>
 <div class="section" id="licence">
 <h2>Licence<a class="headerlink" href="#licence" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="https://github.com/miyakogi/m2r/blob/master/LICENSE">MIT</a></p>
+<p><a class="reference external" href="https://github.com/crossnox/m2r2/blob/master/LICENSE">MIT</a></p>
 </div>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>

@@ -39,3 +39,17 @@ And again:
 
    def f(x, y):
        return x + y + 1
+
+With space:
+
+.. code-block:: python
+
+   def f(x, y):
+       return x + y + 1
+
+Again, with space:
+
+.. code-block:: python
+
+   def f(x, y):
+       return x + y + 1

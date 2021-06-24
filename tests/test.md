@@ -34,3 +34,16 @@ And again:
 def f(x, y):
     return x + y + 1
 ```
+
+With space:
+
+``` python
+def f(x, y):
+    return x + y + 1
+```
+
+Again, with space:
+``` python
+def f(x, y):
+    return x + y + 1
+```

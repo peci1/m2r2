@@ -89,6 +89,11 @@ a code block in HTML like <code class="docutils literal notranslate"><span class
 <li><p>add markdown support for sphinx</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mdinclude</span></code> directive to include markdown from md or rst files</p></li>
 <li><p>option to parse relative links into ref and doc directives (<code class="docutils literal notranslate"><span class="pre">m2r_parse_relative_links</span></code>)</p></li>
+<li><p>option to render <code class="docutils literal notranslate"><span class="pre">mermaid</span></code> blocks as graphs with <cite>sphinxcontrib.mermaid &lt;https://sphinxcontrib-mermaid-demo.readthedocs.io/en/latest/index.html</cite>&gt;`_ (<code class="docutils literal notranslate"><span class="pre">m2r_use_mermaid</span></code>, default: auto)</p>
+<ul>
+<li><p>auto means that m2r2 will check if <code class="docutils literal notranslate"><span class="pre">sphinxcontrib.mermaid</span></code> has been added to the extensions list</p></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>Pure python implementation</p>

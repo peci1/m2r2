@@ -19,9 +19,9 @@ except ImportError:
         readme = f.read()
 
 
-__version__ = "0.3.1"
+__version__ = "0.3.2"
 
-install_requires = ["mistune", "docutils"]
+install_requires = ["mistune==0.8.4", "docutils"]
 test_requirements = ["pygments"]
 if sys.version_info < (3, 3):
     test_requirements.append("mock")

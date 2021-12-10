@@ -1,3 +1,6 @@
+### Version 0.3.2 (2021-12-10)
+* Pin mistune version
+
 ### Version 0.3.1 (2021-07-13)
 * Fix argparse for python3.10
 

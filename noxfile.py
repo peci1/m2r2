@@ -8,7 +8,6 @@ import nox
 @nox.session(
     reuse_venv=True,
     python=[
-        "2.7",
         "3.4",
         "3.5",
         "3.6",

@@ -13,5 +13,6 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: pip install nox
+      run: pip install -r requirements-dev.txt
     - name: Run cop session
       run: nox --sessions cop

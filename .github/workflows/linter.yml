@@ -3,7 +3,7 @@ name: Run linters and formatters
 on: [push]
 
 jobs:
-  deploy:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -11,8 +11,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.7
-    - name: Install dependencies
+    - name: Install nox
       run: pip install nox
+    - name: Install dependencies
       run: pip install -r requirements-dev.txt
     - name: Run cop session
       run: nox --sessions cop

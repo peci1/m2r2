@@ -13,8 +13,10 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
 import os
+import sys
+
+from m2r2 import __version__ as __m2r2_version__
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -32,24 +34,23 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.viewcode',
-    'sphinx.ext.githubpages',
-    'm2r2',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.githubpages",
+    "m2r2",
 ]
 
-from m2r2 import __version__ as __m2r2_version__
 
-suppress_warnings = ['image.nonlocal_uri']
+suppress_warnings = ["image.nonlocal_uri"]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 # source_suffix = ['.rst', '.md']
-source_suffix = '.md'
+source_suffix = ".md"
 no_underscore_emphasis = True
 m2r_parse_relative_links = True
 m2r_anonymous_references = False
@@ -59,12 +60,12 @@ m2r_disable_inline_math = False
 # source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 # General information about the project.
-project = 'M2R2'
-copyright = '2016, Hiroyuki Takagi'
-author = 'Hiroyuki Takagi'
+project = "M2R2"
+copyright = "2016, Hiroyuki Takagi"
+author = "Hiroyuki Takagi"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -80,7 +81,7 @@ release = __m2r2_version__
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -91,7 +92,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -109,7 +110,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
@@ -125,22 +126,22 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+html_theme = "alabaster"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'description': 'Markdown mixed to reST',
-    'github_user': 'CrossNox',
-    'github_repo': 'm2r2',
-    'github_banner': True,
-    'github_type': 'mark',
-    'github_count': False,
-    'font_family': '"Charis SIL", "Noto Serif", serif',
-    'head_font_family': 'Lato, sans-serif',
-    'code_font_family': '"Code new roman", "Ubuntu Mono", monospace',
-    'code_font_size': '1rem',
+    "description": "Markdown mixed to reST",
+    "github_user": "CrossNox",
+    "github_repo": "m2r2",
+    "github_banner": True,
+    "github_type": "mark",
+    "github_count": False,
+    "font_family": '"Charis SIL", "Noto Serif", serif',
+    "head_font_family": "Lato, sans-serif",
+    "code_font_family": '"Code new roman", "Ubuntu Mono", monospace',
+    "code_font_size": "1rem",
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -165,7 +166,7 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied
@@ -183,7 +184,7 @@ html_static_path = ['_static']
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {
-    '**': ['about.html', 'navigation.html', 'relations.html', 'searchbox.html',]
+    "**": ["about.html", "navigation.html", "relations.html", "searchbox.html",]
 }
 
 # Additional templates that should be rendered to pages, maps page names to
@@ -232,7 +233,7 @@ html_sidebars = {
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'M2Rdoc'
+htmlhelp_basename = "M2Rdoc"
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -251,7 +252,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'M2R.tex', 'M2R Documentation', 'Hiroyuki Takagi', 'manual'),
+    (master_doc, "M2R.tex", "M2R Documentation", "Hiroyuki Takagi", "manual"),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -279,7 +280,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, 'm2r', 'M2R Documentation', [author], 1)]
+man_pages = [(master_doc, "m2r", "M2R Documentation", [author], 1)]
 
 # If true, show URL addresses after external links.
 # man_show_urls = False
@@ -293,12 +294,12 @@ man_pages = [(master_doc, 'm2r', 'M2R Documentation', [author], 1)]
 texinfo_documents = [
     (
         master_doc,
-        'M2R',
-        'M2R Documentation',
+        "M2R",
+        "M2R Documentation",
         author,
-        'M2R',
-        'One line description of project.',
-        'Miscellaneous',
+        "M2R",
+        "One line description of project.",
+        "Miscellaneous",
     ),
 ]
 
@@ -316,4 +317,4 @@ texinfo_documents = [
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+intersphinx_mapping = {"https://docs.python.org/": None}

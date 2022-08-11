@@ -8,15 +8,10 @@ import nox
 @nox.session(
     reuse_venv=True,
     python=[
-        "2.7",
-        "3.4",
-        "3.5",
-        "3.6",
         "3.7",
         "3.8",
         "3.9",
         "3.10",
-        "3.10.0-beta.4",
         "pypy",
         "pypy3",
     ],
@@ -55,6 +50,7 @@ def test_sphinx_old_build(session):
     with tempfile.TemporaryDirectory() as tmpdirname:
         session.install(".")
         session.install("sphinx==1.7.0")
+        session.install("jinja2==3.0.0")
         session.run("sphinx-build", "-W", "-E", "-n", "-b", "html", "docs", tmpdirname)
 
 

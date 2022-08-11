@@ -11,9 +11,8 @@ from argparse import ArgumentParser, Namespace
 
 import mistune
 from docutils import io, nodes, statemachine, utils
-from docutils.core import ErrorString
 from docutils.parsers import rst
-from docutils.utils import SafeString, column_width
+from docutils.utils import column_width
 from pkg_resources import get_distribution
 
 __version__ = get_distribution("m2r2").version
@@ -81,9 +80,18 @@ def parse_options():
 
 
 class RestBlockGrammar(mistune.BlockGrammar):
-    directive = re.compile(r"^( *\.\..*?)\n(?=\S)", re.DOTALL | re.MULTILINE,)
-    oneline_directive = re.compile(r"^( *\.\..*?)$", re.DOTALL | re.MULTILINE,)
-    rest_code_block = re.compile(r"^::\s*$", re.DOTALL | re.MULTILINE,)
+    directive = re.compile(
+        r"^( *\.\..*?)\n(?=\S)",
+        re.DOTALL | re.MULTILINE,
+    )
+    oneline_directive = re.compile(
+        r"^( *\.\..*?)$",
+        re.DOTALL | re.MULTILINE,
+    )
+    rest_code_block = re.compile(
+        r"^::\s*$",
+        re.DOTALL | re.MULTILINE,
+    )
 
 
 class RestBlockLexer(mistune.BlockLexer):
@@ -621,12 +629,12 @@ class MdInclude(rst.Directive):
             raise self.severe(
                 'Problems with "%s" directive path:\n'
                 'Cannot encode input file path "%s" '
-                "(wrong locale?)." % (self.name, SafeString(path))
+                "(wrong locale?)." % (self.name, str(path))
             )
         except IOError as error:
             raise self.severe(
                 'Problems with "%s" directive path:\n%s.'
-                % (self.name, ErrorString(error))
+                % (self.name, io.error_string(error))
             )
 
         # read from the file
@@ -640,7 +648,7 @@ class MdInclude(rst.Directive):
                 rawtext = include_file.read()
         except UnicodeError as error:
             raise self.severe(
-                'Problem with "%s" directive:\n%s' % (self.name, ErrorString(error))
+                'Problem with "%s" directive:\n%s' % (self.name, io.error_string(error))
             )
 
         config = self.state.document.settings.env.config
@@ -676,7 +684,9 @@ def setup(app):
         app.add_source_parser(M2RParser)
     app.add_directive("mdinclude", MdInclude)
     metadata = dict(
-        version=__version__, parallel_read_safe=True, parallel_write_safe=True,
+        version=__version__,
+        parallel_read_safe=True,
+        parallel_write_safe=True,
     )
     return metadata
 

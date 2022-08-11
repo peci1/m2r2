@@ -19,9 +19,9 @@ except ImportError:
         readme = f.read()
 
 
-__version__ = "0.3.2"
+__version__ = "0.3.3"
 
-install_requires = ["mistune==0.8.4", "docutils"]
+install_requires = ["mistune==0.8.4", "docutils>=0.19"]
 test_requirements = ["pygments"]
 if sys.version_info < (3, 3):
     test_requirements.append("mock")
@@ -49,12 +49,7 @@ setup(
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.4",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",

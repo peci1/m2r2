@@ -3,7 +3,7 @@ name: Check sphinx building
 on: [push]
 
 jobs:
-  deploy:
+  sphinx_building:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

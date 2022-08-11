@@ -80,9 +80,18 @@ def parse_options():
 
 
 class RestBlockGrammar(mistune.BlockGrammar):
-    directive = re.compile(r"^( *\.\..*?)\n(?=\S)", re.DOTALL | re.MULTILINE,)
-    oneline_directive = re.compile(r"^( *\.\..*?)$", re.DOTALL | re.MULTILINE,)
-    rest_code_block = re.compile(r"^::\s*$", re.DOTALL | re.MULTILINE,)
+    directive = re.compile(
+        r"^( *\.\..*?)\n(?=\S)",
+        re.DOTALL | re.MULTILINE,
+    )
+    oneline_directive = re.compile(
+        r"^( *\.\..*?)$",
+        re.DOTALL | re.MULTILINE,
+    )
+    rest_code_block = re.compile(
+        r"^::\s*$",
+        re.DOTALL | re.MULTILINE,
+    )
 
 
 class RestBlockLexer(mistune.BlockLexer):
@@ -675,7 +684,9 @@ def setup(app):
         app.add_source_parser(M2RParser)
     app.add_directive("mdinclude", MdInclude)
     metadata = dict(
-        version=__version__, parallel_read_safe=True, parallel_write_safe=True,
+        version=__version__,
+        parallel_read_safe=True,
+        parallel_write_safe=True,
     )
     return metadata
 

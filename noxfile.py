@@ -8,14 +8,10 @@ import nox
 @nox.session(
     reuse_venv=True,
     python=[
-        "3.4",
-        "3.5",
-        "3.6",
         "3.7",
         "3.8",
         "3.9",
         "3.10",
-        "3.10.0-beta.4",
         "pypy",
         "pypy3",
     ],
